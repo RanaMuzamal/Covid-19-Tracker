@@ -3,7 +3,7 @@ import { fetchDailyData } from '../../api/index';
 import {Line,Bar} from 'react-chartjs-2';
 import styles from './Chart.module.css';
 
-const Chart=({data: {confirmed,recovered,deaths},country})=> {
+const Chart=({data, country})=> {
     const [dailyData,setDailydata]=useState([])
     useEffect(()=>{
         const fetchAPI=async()=>{
@@ -34,11 +34,10 @@ const Chart=({data: {confirmed,recovered,deaths},country})=> {
                 
             />):null
     )
-    const barChart=(
-        confirmed
-           ? (
-               <Bar>
-                   data={{
+    const barChart = (
+        data ? (
+               <Bar
+                   data = {{
                        labels:['Infected','Recoveries','Deaths'],
                        datasets:[{
                            label:'People',
@@ -46,22 +45,35 @@ const Chart=({data: {confirmed,recovered,deaths},country})=> {
                                            'rgba(0,255,0,0.5)',
                                            'rgba(255,0,0,0.5)',
                         ],
-                        data:[confirmed,recovered,deaths]
+                        data:[data.confirmed.value,data.recovered.value,data.deaths.value]
                        }]
 
                    }}
                    options={{
-                       legend:{display:false},
-                       title:{display:true,text:`Current State in ${country }`}
+                    scales: {
+                      yAxes: [
+                        {
+                          ticks: {
+                            beginAtZero: true,
+                          },
+                        },
+                      ],
+                    },
                    }}
 
-               </Bar>
-           ):null
+               />  ):null
     )
-    return (
+   
+          if(!data){
+            return "loading..."
+          }
+          return (
         <div className={styles.container}>
-            {country ? barChart:lineChart}
+            {(country ==="global") ? lineChart : barChart}
         </div>
     );
-}
+          }
+          
+            
+
 export default Chart;
