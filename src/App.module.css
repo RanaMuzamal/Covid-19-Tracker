@@ -1,0 +1,8 @@
+body{
+    background-color: aliceblue;
+}
+.conatiner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
