@@ -11,7 +11,7 @@ const Chart=({data, country})=> {
         }
         console.log(dailyData);
         fetchAPI();
-    },[])
+    })
     const lineChart = (
         dailyData.length
           ?  (
