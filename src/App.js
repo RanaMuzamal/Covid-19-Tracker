@@ -5,8 +5,8 @@ import Cards from "./components/Card/Card";
 import Chart from "./components/Chart/Chart";
 import CountryPicker from "./components/CountryPicker/CountryPicker";
 
-import { fetch_Data } from "./api/";
 
+import { fetch_Data } from "./api/";
 class App extends React.Component {
   state = {};
   async componentDidMount() {
@@ -22,10 +22,13 @@ class App extends React.Component {
   render() {
     return (
       <div className={styles.container}>
-        
+        <h1>
+          Covid-19 Tracker
+        </h1>
         <Cards data={this.state.data} />
-        <Chart data={this.state.data} country={this.state.country}/>
         <CountryPicker handleCountryChange={this.handleCountryChange} />
+        <Chart data={this.state.data} country={this.state.country}/>
+        
       </div>
     );
   }

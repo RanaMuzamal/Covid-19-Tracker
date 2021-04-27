@@ -6,3 +6,20 @@ body{
     justify-content: center;
     align-items: center;
 }
+.background{
+  height: 100px;
+  width: 50px;
+}
+h1 {
+    width: 100%;
+    font-size: 45px;
+    font-family: "Archivo Black", "Archivo", sans-serif;
+    position: relative;
+    text-align: center;
+    margin-top: 0%;
+    margin-bottom: 0%;
+  }
+  
+
+  
+  
