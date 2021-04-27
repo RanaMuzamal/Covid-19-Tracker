@@ -1,7 +1,3 @@
-.container{
-    display: inline-block;
-    justify-items: center;
-    width: 55%;
-    position: relative;
-    margin-left: 250px;
+.chart{
+    max-width: 100vw;
 }

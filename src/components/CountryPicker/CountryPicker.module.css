@@ -1,9 +1,8 @@
-.formControl{
+.country_picker{
     width: 100%;
-    margin-left: 250px;
+}
+
+.formControl{
     position: relative;
     align-items: center;
-    margin-bottom: 20px !important;
-    margin-top: 4%;
-    
 }
